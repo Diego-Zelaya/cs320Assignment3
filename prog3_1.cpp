@@ -1,9 +1,9 @@
 #include <iostream>
 #include <string>
-#include "lua-5.3.4/src/lua.hpp"
-#include "lua-5.3.4/src/lua.h"
-#include "lua-5.3.4/src/lauxlib.h"
-#include "lua-5.3.4/src/lualib.h"
+#include "lua.hpp"
+#include "lua.h"
+#include "lauxlib.h"
+#include "lualib.h"
 
 using namespace std;
 
