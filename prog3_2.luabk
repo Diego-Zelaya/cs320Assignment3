@@ -12,7 +12,7 @@ function table.getn(table)
     local count = 0
     for k,v in pairs(table) do
         -- print(k)
-        count = k
+        count = k 
     end
   return count
 end
@@ -61,8 +61,7 @@ function InfixToPostfix(str)
 
     -- Split string
     local StringSplit = {}
-    -- for i in str:gmatch("[0-9+-/*(%a+)]") do
-    for i in str:gmatch("[\\s,0-9,+,-,/,*]+") do
+    for i in str:gmatch("[0-9+-/*(%a+)]") do
         StringSplit[#StringSplit+1] = i
     end
 
@@ -88,48 +87,48 @@ function InfixToPostfix(str)
 
                 local top_value = stack[table.getn(stack)]
                 local top_prec = Precedence[top_value]
-
+            
                 if is_left_assoc == true and current_prec <= top_prec or is_left_assoc == false and current_prec < top_prec then
                     table.remove(stack)
                     output[#output+1] = top_value
                 else
                     break
                 end -- end if
-
+                    
                 i = i + 1
             end -- end of while
-
+            
             stack[#stack+1] = q
 
         elseif q == OperatorLParen then
           stack[#stack+1] = q
         else
-
+        
             local found = false
             local r = 0
             while r ~= table.getn(stack) do
-
+              
                 local top_value = table.remove(stack)
                 if top_value == OperatorLParen then
                     found = true
                     break
                 end -- end if
-
-                output[#output+1] = top_value
+ 
+                output[#output+1] = top_value              
                 r = r + 1
-
+                
             end -- end while
-
+            
           if found == false then
-            print("Parenthesis do NOT match 1.")
+            print("Mismatched parenthesis (1).")
           end -- end if
-
+            
         end -- end of if
 
     end -- end main for loop
-
-      if stack and stack[table.getn(stack)] == OperatorLParen and OperatorRParen then
-        print("Parenthesis do NOT match 2.")
+  
+      if stack and stack[table.getn(stack)] == OP_LPAREN and OP_RPAREN then
+        print("Mismatched parenthesis (2).")
       end
 
     -- clean the stack
@@ -143,4 +142,4 @@ function InfixToPostfix(str)
    return StringOutPut
 end -- InFixToPostFix
 
---print(InfixToPostfix('10 * 3'))
+-- print(InfixToPostfix('3 + 3'))
