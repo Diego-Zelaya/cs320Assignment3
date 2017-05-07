@@ -11,7 +11,7 @@ int OnlyPassOneArg ( int argc );
 
 int main(int argc, char *argv[])
 {
-    printf("%s \n", "Assignment #3-1, Diego Zelaya,Kidzeta2005@gmail.com");
+    printf("%s \n", "Assignment #3-3, Diego Zelaya,Kidzeta2005@gmail.com");
 
     // only pass one arg
 	if ( OnlyPassOneArg( argc ) )
