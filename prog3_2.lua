@@ -61,8 +61,7 @@ function InfixToPostfix(str)
 
     -- Split string
     local StringSplit = {}
-    -- for i in str:gmatch("[0-9+-/*(%a+)]") do
-    for i in str:gmatch("[\\s,0-9,+,-,/,*]+") do
+    for i in str:gmatch("[\\s0-9+-/*]+") do
         StringSplit[#StringSplit+1] = i
     end
 
@@ -121,7 +120,7 @@ function InfixToPostfix(str)
             end -- end while
 
           if found == false then
-            print("Parenthesis do NOT match 1.")
+            print("Parenthesis do NOT match.")
           end -- end if
 
         end -- end of if
@@ -129,7 +128,7 @@ function InfixToPostfix(str)
     end -- end main for loop
 
       if stack and stack[table.getn(stack)] == OperatorLParen and OperatorRParen then
-        print("Parenthesis do NOT match 2.")
+        print("Parenthesis do NOT match.")
       end
 
     -- clean the stack
